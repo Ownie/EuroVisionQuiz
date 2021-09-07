@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "952838007880",
+    "firebase_url": "https://euroquizion-3158f.firebaseio.com",
+    "project_id": "euroquizion-3158f",
+    "storage_bucket": "euroquizion-3158f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952838007880:android:a4a2212eed60f69e50fc7d",
+        "android_client_info": {
+          "package_name": "com.euroquizion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952838007880-pv29tqqmut86r78l3kql7vrtkpasdso6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-Y1Wh80JZZnyicpBCRcFnd7C-42DMZ_U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952838007880-pv29tqqmut86r78l3kql7vrtkpasdso6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

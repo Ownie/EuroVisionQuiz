@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:EuroVisionQuiz.ViewModels"
+             xmlns:ads="clr-namespace:EuroVisionQuiz.Ad"
+             mc:Ignorable="d"
+             x:Class="EuroVisionQuiz.Views.FlipCardsPageView"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <local:FlipCardsPageViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid BackgroundColor="{StaticResource CLight}"
+        RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="{StaticResource AdSize}" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Grid
+            Grid.Row="0"
+            Grid.Column="0"
+            BackgroundColor="{StaticResource CRegularDark}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <ImageButton
+                Margin="0,10,0,10"
+                Source="backicon"
+                Aspect="AspectFit"
+                BackgroundColor="Transparent"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Command="{Binding BackCommand}">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                            Value="1" />
+                            </VisualState.Setters>
+                        </VisualState>
+
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                            Value="0.8" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </ImageButton>
+
+            <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            Text="Flip Cards"
+            Margin="{StaticResource MControls}"
+            FontSize="{StaticResource FSTitle}"
+            TextColor="{StaticResource CLight}"
+            FontFamily="RegBoldXL"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+            LineBreakMode="WordWrap" />
+        </Grid>
+
+        <!-- Body -->
+        <ScrollView
+            Grid.Row="1"
+            Margin="15,0,15,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.25*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Button
+                    Grid.Row="1"
+                    Text="{Binding FlipCardText}"
+                    Command="{Binding FlipCommand}"
+                    Margin="{StaticResource MControls}"
+                    FontSize="{StaticResource FSBig}"
+                    TextColor="{StaticResource CRegularLight}"
+                    BackgroundColor="{StaticResource CLightHighlight}"
+                    FontFamily="Reg"
+                    BorderWidth="2"
+                    BorderColor="{StaticResource CRegularDark}" />
+            </Grid>
+        </ScrollView>
+
+        <!-- Footer -->
+        <ads:AdControlView
+            Grid.Row="2"
+            BackgroundColor="{StaticResource CRegularDark}"></ads:AdControlView>
+    </Grid>
+</ContentPage>

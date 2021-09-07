@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             mc:Ignorable="d"
+             x:Class="EuroVisionQuiz.App">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <!-- Colors -->
+            <Color x:Key="CLightHighlight">#FFFDFE</Color>
+            <Color x:Key="CDark">#260C26</Color>
+            <Color x:Key="CLight">#FAF6F6</Color>
+            <Color x:Key="CHighLight">#E20E7F</Color>
+            <Color x:Key="CRegularDark">#6E144E</Color>
+            <Color x:Key="CRegularLight">#8C4196</Color>
+            <!-- Margins -->
+            <sys:Double x:Key="MScreenSides">10</sys:Double>
+            <sys:Double x:Key="MControls">5</sys:Double>
+            <sys:Double x:Key="AdSize">50</sys:Double>
+            <!-- Fontsizes -->
+            <sys:Double x:Key="FSTitle">30</sys:Double>
+            <sys:Double x:Key="FSBig">20</sys:Double>
+            <sys:Double x:Key="FSRegular">14</sys:Double>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

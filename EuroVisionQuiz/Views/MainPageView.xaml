@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:EuroVisionQuiz.ViewModels"
+             xmlns:ads="clr-namespace:EuroVisionQuiz.Ad"
+             mc:Ignorable="d"
+             x:Class="EuroVisionQuiz.Views.MainPageView"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid BackgroundColor="{StaticResource CLight}"
+          RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="{StaticResource AdSize}" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Grid
+            Grid.Row="0"
+            Grid.Column="0"
+            BackgroundColor="{StaticResource CRegularDark}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="EuroQuizion"
+                Margin="{StaticResource MControls}"
+                FontSize="{StaticResource FSTitle}"
+                TextColor="{StaticResource CLight}"
+                FontFamily="RegBoldXL"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center" />
+        </Grid>
+
+        <!-- Body -->
+        <ScrollView
+            Grid.Row="1">
+            <StackLayout>
+
+                <Label
+                    Text="Quiz"
+                    Margin="{StaticResource MControls}"
+                    FontSize="{StaticResource FSTitle}"
+                    TextColor="{StaticResource CRegularDark}"
+                    FontFamily="RegBoldXL"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center" />
+
+                <Button
+                    Text="Flip Cards"
+                    Command="{Binding FlipCardsCommand}"
+                    Margin="{StaticResource MControls}"
+                    FontSize="{StaticResource FSBig}"
+                    TextColor="{StaticResource CHighLight}"
+                    BackgroundColor="{StaticResource CLightHighlight}"
+                    IsEnabled="{Binding SettingsCheck}"
+                    FontFamily="RegBold" />
+
+                <Button
+                    Text="Multiple Choice"
+                    Command="{Binding QuickQuizCommand}"
+                    Margin="{StaticResource MControls}"
+                    FontSize="{StaticResource FSBig}"
+                    TextColor="{StaticResource CHighLight}"
+                    BackgroundColor="{StaticResource CLightHighlight}"
+                    IsEnabled="{Binding SettingsCheck}"
+                    FontFamily="RegBold" />
+
+                <Button
+                    Text="With Friends"
+                    Margin="{StaticResource MControls}"
+                    FontSize="{StaticResource FSBig}"
+                    TextColor="{StaticResource CHighLight}"
+                    BackgroundColor="{StaticResource CLightHighlight}"
+                    FontFamily="RegBold"
+                    IsEnabled="False" />
+
+                <Expander>
+                    <Expander.Header>
+                        <Label
+                    Text="Settings"
+                    Margin="{StaticResource MControls}"
+                    FontSize="{StaticResource FSTitle}"
+                    TextColor="{StaticResource CRegularDark}"
+                    BackgroundColor="{Binding SettingsBackgroundColor}"
+                    FontFamily="RegBoldXL"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center" />
+                    </Expander.Header>
+
+                    <StackLayout>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label
+                                Text="Start Year"
+                                Margin="{StaticResource MControls}"
+                                FontSize="{StaticResource FSBig}"
+                                TextColor="{StaticResource CRegularLight}"
+                                FontFamily="RegBold"
+                                HorizontalTextAlignment="End"
+                                VerticalTextAlignment="Center"
+                                Grid.Column="0" />
+
+                            <Picker
+                                Title="Start Year"
+                                FontFamily="RegBold"
+                                ItemsSource="{Binding Years}"
+                                SelectedIndex="{Binding MinYearsIndex, Mode=TwoWay}"
+                                Grid.Column="1" />
+                        </Grid>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label
+                                Text="End Year"
+                                Margin="{StaticResource MControls}"
+                                FontSize="{StaticResource FSBig}"
+                                TextColor="{StaticResource CRegularLight}"
+                                FontFamily="RegBold"
+                                HorizontalTextAlignment="End"
+                                VerticalTextAlignment="Center"
+                                Grid.Column="0" />
+
+                            <Picker
+                                Title="End Year"
+                                FontFamily="RegBold"
+                                ItemsSource="{Binding Years}"
+                                SelectedIndex="{Binding MaxYearsIndex, Mode=TwoWay}"
+                                Grid.Column="1" />
+                        </Grid>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label
+                        Text="Top"
+                        Margin="{StaticResource MControls}"
+                        FontSize="{StaticResource FSBig}"
+                        TextColor="{StaticResource CRegularLight}"
+                        FontFamily="RegBold"
+                        HorizontalTextAlignment="End"
+                        VerticalTextAlignment="Center"
+                        Grid.Column="0" />
+
+                            <Picker
+                        Title="Top"
+                        FontFamily="RegBold"
+                        ItemsSource="{Binding TopList}"
+                        SelectedIndex="{Binding Topindex}"
+                        Grid.Column="1" />
+                        </Grid>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label
+                        Text="{Binding StepperText}"
+                        Margin="{StaticResource MControls}"
+                        FontSize="{StaticResource FSBig}"
+                        TextColor="{StaticResource CRegularLight}"
+                        FontFamily="RegBold"
+                        HorizontalTextAlignment="End"
+                        VerticalTextAlignment="Center"
+                        Grid.Column="0" />
+
+                            <Stepper
+                        Minimum="1"
+                        Maximum="10000"
+                        Increment="1"
+                        Value="{Binding QuestionCount}"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Grid.Column="1" />
+
+                            <!--<Stepper
+                        Title=""
+                        FontFamily="RegBold"
+                        ItemsSource="{Binding TopList}"
+                        SelectedIndex="{Binding QuestionIndex}"
+                        Grid.Column="1" />-->
+                        </Grid>
+                    </StackLayout>
+                </Expander>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Footer -->
+        <ads:AdControlView
+            Grid.Row="2"
+            BackgroundColor="{StaticResource CRegularDark}"></ads:AdControlView>
+    </Grid>
+</ContentPage>
